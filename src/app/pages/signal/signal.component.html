@@ -1,0 +1,45 @@
+<p>signal works!</p>
+
+<h3>Valore contatore: {{count}}</h3>
+
+<button mat-raised-button (click)="incrementa()">Incrementa</button>
+<br/>    
+<h3>Valore contatore (signal): {{countSignal()}}</h3>
+
+<button mat-raised-button (click)="incrementaSignal()">Incrementa Signal</button>
+<button mat-raised-button (click)="stampaSignalConsole()">Stampa Signal</button>
+
+<h3>Somma: {{numeroA}} + {{numeroB}} = {{getSomma()}}</h3>
+<button mat-raised-button (click)="incrementaA()">Incrementa Signal</button>
+<button mat-raised-button (click)="incrementaB()">Incrementa Signal</button>
+
+<table id="articoli" border="1">
+    <caption>Articoli in Carrello</caption>
+    <thead>
+        <tr>
+            <th>CodArt</th>
+            <th>Descrizione</th>
+            <th>Um</th>
+            <th>Peso(KG/LT)</th>
+            <th>Qta</th>
+            <th>Prezzo</th>
+            <th>Totale</th>
+        </tr>
+    </thead>
+    <tbody>
+      @for (articolo of articoli; track articolo.codart)
+      {
+        <tr>
+          <td>{{articolo.codart}}</td>
+          <td>{{articolo.descrizione}}</td>
+          <td>{{articolo.um}}</td>
+          <td>{{articolo.peso}}</td>
+          <td>{{articolo.qta}}</td>
+          <td>{{articolo.prezzo}}</td>
+          <td>{{articolo.totale}}</td>
+          <td><button (click)="removeItem(articolo)">Elimina</button></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  Valore Totale: € {{totale()}}
